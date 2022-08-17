@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Pelicula implements Perfilable{
+  String titulo
+  String urlImdb
+  String urlImagen
+
+  getPerfil() : PerfilDeGenero
+  sosParecidoA(otro : Perfilable, umbral : int) : Boolean
+}
+
+class Cinefilo implements Perfilable{
+  nombreCompleto : String
+  email : string
+
+  marcarComoVista(pelicula:Pelicula)
+  peliculasVistas() : Pelicula[0..*]
+  sosParecidoA(otro: Perfilable, umbral: int) : Boolean
+  getPerfil() : PerfilDeGenero
+}
+
+Cinefilo --> "*" Pelicula
+Pelicula --> PerfilDeGenero
+
+class PerfilDeGenero <<ValueObject>> {
+  accion : int
+  suspenso : int
+  romance  : int
+  sciFi : int
+  horror : int
+  comedia : int
+  {static} base() : PerfilDeGenero
+  {static} promediando(perfiles : PerfilDeGenero[*]) : PerfilDeGenero
+  sosParecidoA(otro : PerfilDeGenero): Boolean
+}
+
+interface Perfilable {
+  getPerfil() : PerfilDeGenero;
+  sosParecidoA(otro : Perfilable, umbral : int) : Boolean
+}
+
+
+@enduml

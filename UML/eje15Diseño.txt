@@ -1,0 +1,94 @@
+Registrar usuarios: Se provee nombre, dirección, dni. El sistema da de alta el usuario. El sistema retorna el Usuario. 
+El usuario no tiene propiedades en alquiler. El usuario no tiene ninguna reserva de propiedad. 
+El usuario no ha alquilado nunca una propiedad. 
+
+Pre-Condiciones: La colección de usuarios existe 
+Post-Condiciones: hay una nueva instancia de Usuario. Se establece nombre, direccion y dni para el usuario. 
+El usuario no se relaciona con ningun alquiler ni reserva de propiedad. El usuario esta en la colección de usuarios. 
+Se devolvió el usuario. 
+Qué hay que hacer? 
+Crear e inicializar el usuario
+Agregar el usuario a la colección de usuarios
+Devolver el usuario. 
+
+
+Registrar una propiedad en alquiler: Se provee nombre, descripción, precio por noche, y dirección. Se provee el usuario propietario. 
+El sistema da de alta la propiedad y la retorna. La propiedad no tiene ninguna fecha ocupada. 
+
+Pre-Condiciones: La colección de propiedades existe. 
+Post-Condiciones: Hay una nueva instancia de Propiedad. Se establece nombre, descripción, precio por noche, dirección y usuario propietario. 
+La propiedad esta en la colección de propiedades. La propiedad no tiene ninguna fecha ocupada.
+Se devolvió la propiedad. 
+Que hay que hacer?
+Crear e inicializar la propiedad
+Agregar la propiedad a la colección de propiedades
+Devolver la propiedad
+
+
+Buscar propiedades disponibles en un período: Se indica el período (fecha de inicio y fecha de fin). Retorna todas las propiedades que se encuentran 
+disponibles desde la fecha de inicio (inclusive) hasta el día de fin (inclusive). 
+Pre-Condiciones: La colección de propiedades existe y tiene al menos una propiedad. 
+Post-Condiciones: se devuelve una nueva colección de propiedades disponibles en la fecha recibida. 
+Qué hay que hacer?
+devolver la colección de propiedades con disponibilidad en el periodo dado. Recorre la lista de propiedades y por cada una se fija si tiene desocupado en el periodo dado.Para esto delego a la propiedad para
+que realice la operacion. 
+
+
+Hacer una reserva: Se indica la propiedad, el período y el usuario para quien se hace la reserva (el inquilino). 
+Si la propiedad está libre, se genera la reserva (que queda registrada en el sistema) y se retorna. 
+La propiedad pasa a estar ocupada en esas fechas. Si la propiedad no está libre no hace nada,  ni retorna nada. 
+Ver notas al final de este ejercicio sobre cómo podría resolver este punto.
+
+Pre-Condiciones: la colección de reservas existe. 
+Post-Condiciones: hay una nueva instancia de reserva. Se establece propiedad, periodo y usuario. 
+La reserva esta en la coleción de reservas. el periodo recibido pasa a estar ocupado
+Se devuelve la reserva.
+Que hay que hacer? 
+HacerReserva: le delegro a la propiedad que cree e inicialize una reserva. El servicio de propiedades le delega la instanciacion de reservas a propiedad 
+enviandole periodo e informacion del inquilino. La propiedad crea la instancia de reserva solo si la propiedad esta libre en el periodo recibido. 
+agregarReservas en su coleccion  de reservas. La propiedad se tiene que aseguar que no le creen reservas que choquen con reservas que ya tiene. 
+
+Calcular el precio de una reserva: dada una reserva, obtener el precio a partir del precio por noche de la propiedad y la cantidad de noches de la reserva. 
+Pre-Condiciones: existe una reserva
+Post-Condiciones: se devuelve el precio
+Que hay que hacer? 
+Devolver el precio que es el precioPorNoche de la propiedad reservada * la cantidad de noches de la reserva
+
+
+
+Eliminar reserva: Dada una reserva, si la fecha de inicio de la reserva es posterior a la fecha actual se elimina la reserva. La propiedad pasa a estar disponible en esas fechas. 
+Pre-Condiciones: existe una reserva 
+Post-Condiciones: se elimina una reserva de la coleccion de reservas 
+Que hay que hacer? 
+eliminar una reserva de la coleccion si existe en la coleccion y si (fechaInicio > fechaActual y desocupar la propiedad (delego a reserva))
+
+
+
+Obtener las reservas de un usuario: dado un usuario, obtener todas las reservas que ha efectuado (pasadas o futuras). 
+Pre-Condiciones: existe un usuario, y existe la colecion de sus resevas
+Post-Condiciones: se retornan todas las reservas del usuario
+Que hay que hacer? 
+retornar todas las reservas del usuario
+
+
+
+Calcular los ingresos de un propietario: dado un usuario, y dos fechas, obtener el monto total que conseguirá por todas las reservas, de todas sus propiedades, entre las fechas indicadas. 
+Pre-Condiciones: existe un propietario, existe la coleccion de propiedades con propiedades, existe la coleccion de reservas de cada propiedad
+con reservas
+Post-Condiciones: se devuelve el monto total de todas las reservas en la fecha dada de las propiedades del propietario 
+Que hay que hacer? hay que buscar las propiedades del inquilino. una vez que se tengan las propiedades por cada una hay que recorrer sus reservas
+para obtener el monto total x cada reserva. Finalmente hay que sumar los montos de todas las reservas de todas sus propiedades y devolverlo 
+ 
+
+
+Overlaps: Retorna true si el período de tiempo del receptor se superpone con el recibido por parámetro
+Pre-Condiciones: existe una DataLapse
+Post-Condiciones: se retorna true o false 
+Que hay que hacer? 
+no chocan cuando la fecha final es mas grande que la del periodo (fecha final) o
+no chocan cuando la fecha inicial es mas chica que la del periordo (fecha inicial) 
+el resultado de esto lo niego y se tienen en cuenta los cuatro casos de overlapse
+
+ 
+
+

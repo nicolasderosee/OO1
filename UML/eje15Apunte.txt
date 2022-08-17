@@ -1,0 +1,68 @@
+leer uml y heuristicas
+aprender los mensajes de las colecciones 
+hacer simulacro
+
+
+
+si tengo una lista en usuario con las propiedades que tiene en alquiler 
+tenes una lista de propiedades que esta en servicio de propiedades entonces tengo que agregar en las dos listas y eliminar en las dos listas 
+la facilidad que te da es que tenes un usuario y le podes decir get propiedades y ya las tenes, no hay que filtrar.
+
+Si no tengo la lista en usuarios y en servicio de propiedades tengo todas las propiedades tengo que filtrar para buscar las propiedades del usuario.
+Entonces si quiero saber todas las propiedades de x usuario, lo recibo en servicio de propiedades por parametro y hago
+
+propiedades 
+   .stream()
+   .filter(x cada propiedad  propiedad.getPropietario = usuario recibido ) 
+    retorno una lista con las propiedades del usuario 
+
+
+si quiero ver la reserva que hizo un usuario si no tengo la flecha que va de usuario a reserva. a la propiedad le digo
+dame todas las reservas de x usuario y hago un filtro de la coleccion de reservas en donde se fija que el usuario coincida 
+
+
+
+parados en la clase propiedad de alquileres tenemos la lista de reservas. entonces agrego un metodo que se llame reservas de usuario
+y que recibe por parametro el usuario que me lo pasa el servicio de propiedades. agarro la lista de reservas y hago filter y para
+cada reserva el usuario tiene que ser igual al inquilino 
+
+reservas
+  .stream
+  .filter (reserva.getInquilino = usuario recibido x parametro) 
+retorno las reservas del usuario recibido 
+
+
+
+
+recuperas los periodos via la coleccion de reservas
+dada la colecc de periodos
+filter con overlapse
+si esta vacio
+no existe ninguno con overlapse 
+ 
+
+profe cuando tenes varios metodos en distintas clases que tienen el mismo nombre pero hacen cosas distintas, conviene hacer una interfaz? 
+
+
+
+
+!x
+
+retorna verdadero si X es falso 
+
+
+
+
+busco el primero que cumple. si encuentro uno es que lo cumple y no esta disponible entonces niego . si no encuentro ninguno es que cumple 
+
+
+si una sentencia no se cumple, para not es valido
+
+si la sentencia se cumple, para not es invalido 
+
+
+si hace overlapse no esta libre 
+
+
+
+

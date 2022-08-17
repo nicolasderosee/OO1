@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+:Administrador: as Admin
+:Cinefilo: as User
+
+Admin -> (Cargar película)
+
+User -> (Registrarse)
+User -> (Listar películas)
+User -> (Listar cinéfilos)
+User -> (Marcar una película como vista)
+User -> (Obtener películas vistas por un cinéfilo)
+User -> (Obtener las preferencias de género de un cinéfilo)
+User -> (Encontrar cinéfilos con gustos similares a él)
+User -> (Obtener películas similares a una)
+User -> (Encontrar películas que le puedan gustar a un cinéfilo)
+@enduml

@@ -1,0 +1,29 @@
+Diseño ejercicio 16
+
+Registrar una propiedad en alquiler: Se provee nombre, descripción, precio por noche, y dirección. Se provee el usuario propietario. 
+El sistema da de alta la propiedad y la retorna. La propiedad no tiene ninguna fecha ocupada.
+Adicionalmente se indica la política de cancelación.
+La política de cancelación puede ser una de tres: flexible, moderada, o estricta. 
+
+Pre-Condiciones: La colección de propiedades existe. 
+Post-Condiciones: Hay una nueva instancia de Propiedad. Se establece nombre, descripción, precio por noche, dirección, usuario propietario y la politica. 
+La propiedad esta en la colección de propiedades. La propiedad no tiene ninguna fecha ocupada.
+Se devolvió la propiedad. 
+Que hay que hacer?
+Crear e inicializar la propiedad
+Agregar la propiedad a la colección de propiedades
+Devolver la propiedad
+ 
+
+Calcular el monto a reembolsar si se hiciera una cancelación: Dada una reserva y una fecha tentativa de cancelación, devuelve el monto que sería reembolsado. 
+
+El cálculo se hace de la siguiente manera. 
+Si la propiedad tiene política de cancelación flexible, se reembolsará el monto total sin importar la fecha de cancelación (que de todas maneras debe ser anterior a la fecha de inicio de la reserva). 
+Si una propiedad tiene política de cancelación moderada, se reembolsará el monto total si la cancelación se hace hasta una semana antes y 50% si se hace hasta 2 días antes.
+Si una propiedad tiene política de cancelación estricta, no se reembolsará nada (0, cero) sin importar la fecha tentativa de cancelación.
+
+Pre-Condiciones: existe la propiedad, existe la coleccion de reservas de dicha propiedad. 
+Post-Condiciones: se recibio una reserva y una fecha de cancelacion. Se elimina la reserva de la coleccion de reservas y se devuelve el reembolso 
+Que hay que hacer?
+En propiedad pregunto si la reserva recibida esta contenida en la coleccion. Si existe en la coleccion de reservas. Ejecuto el reembolso de la politica correspondiente pasandole la reserva.
+
